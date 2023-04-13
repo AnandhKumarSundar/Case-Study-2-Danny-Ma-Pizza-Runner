@@ -3,6 +3,7 @@ Case-Study-2-Danny-Ma-Pizza-Runner
 ![image](https://user-images.githubusercontent.com/126285330/226099275-839259d7-500b-43df-9e20-61fa034e1b0e.png)
 
 Business Case
+
 Danny was sold on the idea “80s Retro Styling and Pizza Is The Future!”, but he knew that pizza alone was not going to help him get seed funding to expand his new Pizza Empire - so he had one more genius idea to combine with it - he was going to Uberize it - and so Pizza Runner was launched!
 
 Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runner Headquarters (otherwise known as Danny’s house) and also maxed out his credit card to pay freelance developers to build a mobile app to accept orders from customers.
@@ -13,8 +14,11 @@ Entity Relationship Diagram
 
 
 Case Study Questions
+
 Each of the following case study questions can be answered using a single SQL statement.
+
 A. Pizza Metrics
+
 How many pizzas were ordered?
 How many unique customer orders were made?
 How many successful orders were delivered by each runner?
