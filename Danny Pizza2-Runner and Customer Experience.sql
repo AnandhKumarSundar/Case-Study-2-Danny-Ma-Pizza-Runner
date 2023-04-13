@@ -7,16 +7,16 @@ select * from customer_orders
 select * from runner_orders
 
 
-----Data Cleaning
+--Data Cleaning Steps
 
------customer_orders  table 
+--1.customer_orders table 
 select order_id,customer_id,pizza_id,
 case when exclusions='null' then ' ' else exclusions end as exclusions,
 case when extras='null' or extras IS NULL then ' ' else extras end as extras,
 order_time
 into customer_orders#  from customer_orders
 
-----runner_orders table
+--2.runner_orders table
 SELECT order_id, runner_id,
   CASE 
     WHEN pickup_time LIKE 'null' THEN ''
@@ -44,7 +44,6 @@ FROM runner_orders;
 
 
 1. How many runners signed up for each 1 week period? (i.e. week starts 2021-01-01)
-
 
 select * from runners
 select datepart(week,registration_date) as weekly,count(runner_id) as number_of_runners  from runners
