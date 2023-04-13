@@ -2,13 +2,13 @@ A. Pizza Metrics
 
 1. How many pizzas were ordered?
 
-select count(*) as Number_pizza_ordered from customer_orders  (14)
+select count(*) as Number_pizza_ordered from customer_orders  
 
 2. How many unique customer orders were made?
 
 To find unique customers
 
-  select count(DISTINCT CUSTOMER_ID) as Number_pizza_ordered_unique_customers from customer_orders  (5)
+  select count(DISTINCT CUSTOMER_ID) as Number_pizza_ordered_unique_customers from customer_orders  
 
 To find count how many orders each unique customer made. This query includes all orders, successful ones and cancelled ones.unique customers
 
