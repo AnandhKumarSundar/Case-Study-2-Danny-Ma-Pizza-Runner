@@ -1,4 +1,4 @@
-Case-Study-2-Danny-Ma-Pizza-Runner
+🍕 Case Study #2 Pizza Runner
 
 ![image](https://user-images.githubusercontent.com/126285330/226099275-839259d7-500b-43df-9e20-61fa034e1b0e.png)
 
