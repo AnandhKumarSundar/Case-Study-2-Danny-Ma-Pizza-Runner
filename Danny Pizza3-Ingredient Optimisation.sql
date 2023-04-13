@@ -2,14 +2,15 @@ select * from pizza_recipes
 select * from pizza_toppings
 select * from pizza_names
 
--------------------------------Data Cleaning--------------------
+--Data Cleaning Steps
+Creating temporary tables for all Pizza related tables with Data cleaning 
+
 --#pizza_toppings
 select topping_id,cast(topping_name as varchar(max)) topping_name into #pizza_toppings from pizza_toppings
 
 select * from pizza_toppings
 select * from #pizza_toppings
 
--------------------------------
 --#pizza_names
 select 
 	pizza_id, 
@@ -19,8 +20,6 @@ from pizza_names;
 
 select * from pizza_names
 select * from #pizza_names
-
------------------------
 
 --#pizza_recipes
 select 
@@ -36,7 +35,6 @@ from (
  CROSS APPLY STRING_SPLIT(toppings, ',')
 order by pizza_id;
 
------------------------------------
 --#customer_orders
 select * from #customer_orders
 select order_id,customer_id,pizza_id,
@@ -45,13 +43,10 @@ case when extras='null' or extras IS NULL then ' ' else extras end as extras,
 order_time
 into customer_orders#  from customer_orders
 
-----Each order contain 1 or many pizzas so it is difficult to select each one seperately for further analysis.So adding one seperate column in customer
+--Each order contain 1 or many pizzas so it is difficult to select each one seperately for further analysis.So adding one seperate column in customer
 
 ALTER TABLE #customer_orders
 ADD record_id INT IDENTITY(1,1);
-
-
---------------------------------------------------------------
 
 --#extras
 select record_id,trim(value) as extras into #_extras_listup1 from
@@ -61,8 +56,6 @@ case when exclusions='null' then ' ' else exclusions end as exclusions,
 case when extras='null' or extras IS NULL then ' ' else extras end as extras,
 order_time from #customer_orders) e
 CROSS APPLY STRING_SPLIT(extras, ',');
-
----------------------------------------------------
 
 --exclusions
 select record_id,trim(value) as exclusions into #exclusion_list from
@@ -83,9 +76,9 @@ join #pizza_recipes pr on pt.topping_id=pr.toppings
 join #pizza_names pn on pn.pizza_id=pr.pizza_id
 group by pizza_name
 
------------------------------------------------------
 
-----Q2. What was the most commonly added extra?
+
+Q2. What was the most commonly added extra?
 
 Query:
 
@@ -93,17 +86,16 @@ select count(*) as extra_count,topping_name from #pizza_toppings pt join #_extra
 on pt.topping_id=el.extras
 group by topping_name
 
-----------------------------------------------------------------------------
-----Q3. What was the most common exclusion?
+
+Q3. What was the most common exclusion?
 
 select count(*) as extra_count,topping_name from #pizza_toppings pt join #exclusion_list el
 on pt.topping_id=el.exclusions
 group by topping_name
 order by extra_count desc
 
----------------------------------------------------------------------------------
 
------Q4.Generate an order item for each record in the customers_orders table in the format of one of the following
+Q4.Generate an order item for each record in the customers_orders table in the format of one of the following
 
 
 WITH cteExtras AS (
@@ -151,12 +143,11 @@ GROUP BY
 ORDER BY record_id;
 
 
------------------------------------------------------------------------------------------------------
-----5 Generate an alphabetically ordered comma separated ingredient list for
----each pizza order from the customer_orders table and add a 2x in front of any relevant ingredients
------to join #pizza_recipes with pizza_topings to get topping_name
 
------Data cleaning to combine #pizza_recipes and #pizza_toppings
+Q5. Generate an alphabetically ordered comma separated ingredient list for each pizza order from the customer_orders table and add a 2x in front of any relevant 
+ingredients to join #pizza_recipes with pizza_topings to get topping_name
+
+--Data cleaning to combine #pizza_recipes and #pizza_toppings
 SELECT		
    p.pizza_id,
    TRIM(t.value) AS toppings,
@@ -169,7 +160,7 @@ SELECT
 
 	 select * from #pizza_recipes_toppings
 
-----Query
+--Query to get output 
 
 WITH ingredients_cte AS
 (
@@ -198,9 +189,8 @@ GROUP BY
 	pizza_name
 ORDER BY 1;
 
---------------------------------------------------------------
 
-----6.What is the total quantity of each ingredient used in all ordered pizzas sorted by most frequent first?
+Q6.What is the total quantity of each ingredient used in all ordered pizzas sorted by most frequent first?
 
 WITH ingredients_cte AS
 (
