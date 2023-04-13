@@ -2,7 +2,7 @@ Case-Study-2-Danny-Ma-Pizza-Runner
 
 ![image](https://user-images.githubusercontent.com/126285330/226099275-839259d7-500b-43df-9e20-61fa034e1b0e.png)
 
-Business Case
+Business Task
 
 Danny was sold on the idea “80s Retro Styling and Pizza Is The Future!”, but he knew that pizza alone was not going to help him get seed funding to expand his new Pizza Empire - so he had one more genius idea to combine with it - he was going to Uberize it - and so Pizza Runner was launched!
 
