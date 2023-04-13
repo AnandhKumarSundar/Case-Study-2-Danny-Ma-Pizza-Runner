@@ -40,6 +40,7 @@ A. Pizza Metrics
 10.What was the volume of orders for each day of the week?
 
 
+
 B. Runner and Customer Experience
 
 1.How many runners signed up for each 1 week period? (i.e. week starts 2021-01-01)
@@ -56,6 +57,7 @@ B. Runner and Customer Experience
 
 7.What is the successful delivery percentage for each runner?
 
+
 C. Ingredient Optimisation
 
 1.What are the standard ingredients for each pizza?
@@ -69,6 +71,7 @@ C. Ingredient Optimisation
 5.Generate an alphabetically ordered comma separated ingredient list for each pizza order from the customer_orders table and add a 2x in front of any relevant ingredients For example: "Meat Lovers: 2xBacon, Beef, ... , Salami"
 
 .What is the total quantity of each ingredient used in all delivered pizzas sorted by most frequent first?
+
 
 
 D. Pricing and Ratings
@@ -87,8 +90,11 @@ D. Pricing and Ratings
 GitHub Solution
 
 A. Danny Pizza1-Pizza Metrics
+
 B. Danny Pizza2-Runner and Customer Experience
+
 C. Danny Pizza3-Ingredient Optimisation
+
 D. Danny Pizza4-Pricing and Ratings
 
 
